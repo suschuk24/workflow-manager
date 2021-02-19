@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import uuid from "uuid/v4";
+import { Container, Row, Col } from "react-bootstrap"
 
 const itemsFromBackend = [
   { id: uuid(), content: "First task" },
@@ -12,21 +13,33 @@ const itemsFromBackend = [
 
 const columnsFromBackend = {
   [uuid()]: {
-    name: "Requested",
+    name: "Checked In",
     items: itemsFromBackend
   },
   [uuid()]: {
-    name: "To do",
+    name: "General Service",
     items: []
   },
   [uuid()]: {
-    name: "In Progress",
+    name: "Diag Pending",
     items: []
   },
   [uuid()]: {
-    name: "Done",
+    name: "Hold for Auth.",
     items: []
-  }
+  },
+  [uuid()]: {
+    name: "Hold for Parts",
+    items: []
+  },
+  [uuid()]: {
+    name: "Quality Control",
+    items: []
+  },
+  [uuid()]: {
+    name: "Complete",
+    items: []
+  },
 };
 
 const onDragEnd = (result, columns, setColumns) => {
@@ -69,13 +82,14 @@ const onDragEnd = (result, columns, setColumns) => {
 function KanbanBoard() {
     const [columns, setColumns] = useState(columnsFromBackend);
     return(
-        <div style={{ display: "flex", justifyContent: "center", height: "100%" }}>
+        <Container >
+          <Row>
         <DragDropContext
           onDragEnd={result => onDragEnd(result, columns, setColumns)}
         >
           {Object.entries(columns).map(([columnId, column], index) => {
             return (
-              <div
+              <Col
                 style={{
                   display: "flex",
                   flexDirection: "column",
@@ -84,7 +98,7 @@ function KanbanBoard() {
                 key={columnId}
               >
                 <h2>{column.name}</h2>
-                <div style={{ margin: 8 }}>
+                <div>
                   <Droppable droppableId={columnId} key={columnId}>
                     {(provided, snapshot) => {
                       return (
@@ -138,11 +152,12 @@ function KanbanBoard() {
                     }}
                   </Droppable>
                 </div>
-              </div>
+              </Col>
             );
           })}
         </DragDropContext>
-      </div>
+        </Row>
+      </Container>
     )
 }
 
