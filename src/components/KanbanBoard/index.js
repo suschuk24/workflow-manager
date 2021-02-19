@@ -82,27 +82,24 @@ const onDragEnd = (result, columns, setColumns) => {
 function KanbanBoard() {
     const [columns, setColumns] = useState(columnsFromBackend);
     return(
-        <Container >
+        <Container>
+          <h2 className="header">Work In Progress</h2>
+
           <Row>
         <DragDropContext
           onDragEnd={result => onDragEnd(result, columns, setColumns)}
         >
           {Object.entries(columns).map(([columnId, column], index) => {
             return (
-              <Col
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center"
-                }}
+              <Col className="board"
                 key={columnId}
               >
-                <h2>{column.name}</h2>
+                <h3>{column.name}</h3>
                 <div>
                   <Droppable droppableId={columnId} key={columnId}>
                     {(provided, snapshot) => {
                       return (
-                        <div
+                        <div className="kanban-card"
                           {...provided.droppableProps}
                           ref={provided.innerRef}
                           style={{

@@ -10,7 +10,7 @@ function Navigation() {
         <Nav className="mr-auto">
           <Nav.Link href="/workflow">Workflow</Nav.Link>
           <Nav.Link href="vehicles-on-site">Vehicles on Site</Nav.Link>
-          <Nav.Link href="/messaging">Messaging</Nav.Link>
+          <Nav.Link href="/customer-details">Customer Details</Nav.Link>
         </Nav>
       </Navbar>
     )

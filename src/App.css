@@ -1,14 +1,27 @@
 * {
   margin: 0px;
   padding: 0px;
+
 }
-.App {
+
+.header {
   text-align: center;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+.board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.kanban-card {
+  padding: 4;
+  width: 250;
+  min-height: 500;
 }
 
 @media (prefers-reduced-motion: no-preference) {
