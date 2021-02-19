@@ -4,6 +4,13 @@ const cors = require("cors");
 
 const app = express();
 
+const db = require("../server/models");
+db.sequelize.sync()
+
+db.sequelize.sync({ force: true }).then(() => {
+  console.log("Drop and re-sync db.");
+});
+
 var corsOptions = {
   origin: "http://localhost:8081"
 };
@@ -18,7 +25,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+  res.json({ message: "Server is running, hello!" });
 });
 
 // set port, listen for requests
