@@ -31,7 +31,13 @@ class App extends Component {
             <Route exact path = "/reports" component={Reports}></Route>
             <Route exact path = "/data-entry" component={DataEntry}></Route>
           </Switch> 
-
+          <main>
+            <div className="text-center" style={{marginTop: "20px"}}>
+              <p>Welcome to Dave's Ultimate Workflow Manager Alpha Build!</p>
+              <p>Please select a link in the navigation to preview the site's functionality!</p>
+              <p>Please keep in mind, we are not currently connected to the database, so no information will be sent or retrieved at this time.</p>
+            </div>
+          </main>
       </Router>
     );
   }
