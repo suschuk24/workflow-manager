@@ -11,26 +11,26 @@ import Landing from "./pages/Landing"
 import KanbanBoard from "./components/KanbanBoard"
 import VehiclesByTechnician from "./components/VehiclesByTechnician"
 import CustomerDetails from "./components/CustomerDetails";
+import DataEntry from "./components/DataEntry";
+import Reports from "./components/Reports"
+
 
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <div className="app">
-          <header>
+        
+          <header className="app">
              <Landing />
           </header>
-          <div className="content">
-          <Switch>
+          <Switch className="content">
             <Route exact path="/workflow" component={KanbanBoard}></Route>
             <Route exact path="/vehicles-on-site" component={VehiclesByTechnician}></Route>
             <Route exact path="/customer-details" component={CustomerDetails}></Route>
+            <Route exact path = "/reports" component={Reports}></Route>
+            <Route exact path = "/data-entry" component={DataEntry}></Route>
           </Switch> 
-          </div>
-        </div>
-         
-
 
       </Router>
     );
