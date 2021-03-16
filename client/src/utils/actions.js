@@ -1,0 +1,3 @@
+export const UPDATE_REPAIRS = "UPDATE_REPAIRS"
+
+export const UPDATE_USERS = "UPDATE_USERS"
