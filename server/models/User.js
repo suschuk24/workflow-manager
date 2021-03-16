@@ -1,11 +1,11 @@
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes } = require('sequelize')
 
 const sequelize = require('../config/connection')
 
-// create RO model
-class RepairOrder extends Model {}
+// creates user model
+class User extends Model {}
 
-RepairOrder.init(
+User.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -13,36 +13,17 @@ RepairOrder.init(
       primaryKey: true,
       autoIncrement: true
     },
-    roNumber: {
-      type: DataTypes.INTEGER,
+    username: {
+      type: DataTypes.STRING,
       unique: true
     },
-    customerName: {
+    email: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    invoiceDate: {
+    password: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    totalSale: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    totalRec: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    closingRatio: {
-      type: DataTypes.INTEGER
-    },
-    advisor: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    leadType: {
-        type: DataTypes.STRING,
-        allowNull: false
     }
   },
   {
@@ -55,8 +36,8 @@ RepairOrder.init(
     // use underscores instead of camel-casing (i.e. `comment_text` and not `commentText`)
     underscored: true,
     // make it so our model name stays lowercase in the database
-    modelName: 'repair-order'
+    modelName: 'user'
   }
 );
-
-module.exports = RepairOrder
+  
+  module.exports = User

@@ -1,3 +1,4 @@
 const RepairOrder = require('./RepairOrder');
+const User = require('./User')
 
-module.exports = { RepairOrder}
+module.exports = { RepairOrder, User }

@@ -41,7 +41,7 @@ router.post('/', (req, res) => {
 })
 
 //  PUT/Update RO
-router.put('/:', (req, res) => {
+router.put('/:id', (req, res) => {
     RepairOrder.update(req.body, {
         where : {
             id: req.params.id
