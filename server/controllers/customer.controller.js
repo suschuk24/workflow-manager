@@ -1,7 +1,9 @@
-const { customers, Sequelize } = require("../models")
+const { repairOrder, Sequelize } = require("../models")
 const db = require("../models")
-const Customer  = db.customers
+const RepairOrder  = db.repairOrder
 const Op  = db.Sequelize.Op
+
+
 exports.findAll = (req, res) => {
 
 }
